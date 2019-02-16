@@ -51,8 +51,8 @@ pacman -S --noprogressbar --noconfirm --needed php-intl
 sed -i 's,;extension=intl.so,extension=intl.so,g' /etc/php/php.ini
 
 # for php-mcrypt
-pacman -S --noprogressbar --noconfirm --needed php-mcrypt
-sed -i 's,;extension=mcrypt.so,extension=mcrypt.so,g' /etc/php/php.ini
+# pacman -S --noprogressbar --noconfirm --needed php-mcrypt
+# sed -i 's,;extension=mcrypt.so,extension=mcrypt.so,g' /etc/php/php.ini
 
 # for PHP caching
 sed -i 's,;zend_extension=opcache.so,zend_extension=opcache.so,g' /etc/php/php.ini
