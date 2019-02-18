@@ -2,14 +2,10 @@
 ----
 Install Docker: https://docs.docker.com/engine/installation/
 ```
-docker build -t programmerswhogiveashit .
+docker-compose up
 
-docker run --rm -it -p 4684:80 -v `pwd`:/srv/http programmerswhogiveashit /bin/bash
-
-start-servers
-
-# In another terminal
-open localhost:4684
+# In your browser
+http://localhost:4684
 ```
 
 About

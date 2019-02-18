@@ -1,0 +1,34 @@
+version: '3'
+services:
+  jobskee:
+    build:
+      dockerfile: Dockerfile
+      context: .
+      args:
+        SUBJECT: /C=US/ST=CA/L=CITY/O=ORGANIZATION/OU=UNIT/CN=localhost
+        DO_SSL_LETS_ENCRYPT_FETCH: "false"
+        USE_EXISTING_LETS_ENCRYPT: "false"
+        EMAIL: fail
+        DO_SSL_SELF_GENERATION: "true"
+    image: programmerswhogiveashit
+    volumes:
+      - ./:/srv/http
+    ports:
+      - '4684:80'
+    environment:
+        - CURLOPT_CAINFO=/etc/ssl/certs/ca-certificates.crt
+        - START_APACHE=true
+        - APACHE_ENABLE_PORT_80=true
+        - START_MYSQL=true
+        - ENABLE_DAV=false
+        - ENABLE_CRON=true
+    # here are the ports that various things in this container are listening on
+    expose:
+      # for http (apache, only if APACHE_DISABLE_PORT_80 = false)
+      - "80"
+      # for https (apache)
+      - "443"
+      # for postgreSQL server (only if START_POSTGRESQL = true)
+      #- "5432"
+      # for MySQL server (mariadb, only if START_MYSQL = true)
+      - "3306"
