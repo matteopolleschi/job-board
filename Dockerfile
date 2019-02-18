@@ -1,4 +1,4 @@
-FROM greyltc/archlinux
+FROM greyltc/archlinux:2017-11-20
 MAINTAINER Grey Christoforo <grey@christoforo.net>
 
 COPY local-setup/install-lamp.sh /usr/sbin/install-lamp
@@ -8,32 +8,17 @@ COPY local-setup/db_dump.sql db_dump.sql
 
 # generate our ssl key
 ADD local-setup/setupApacheSSLKey.sh /usr/sbin/setup-apache-ssl-key
-ENV SUBJECT /C=US/ST=CA/L=CITY/O=ORGANIZATION/OU=UNIT/CN=localhost
-ENV DO_SSL_LETS_ENCRYPT_FETCH false
-ENV USE_EXISTING_LETS_ENCRYPT false
-ENV EMAIL fail
-ENV DO_SSL_SELF_GENERATION true
-RUN setup-apache-ssl-key
-ENV DO_SSL_SELF_GENERATION false
-ENV CURLOPT_CAINFO /etc/ssl/certs/ca-certificates.crt
 
-# here are the ports that various things in this container are listening on
-# for http (apache, only if APACHE_DISABLE_PORT_80 = false)
-EXPOSE 80
-# for https (apache)
-EXPOSE 443
-# for postgreSQL server (only if START_POSTGRESQL = true)
-EXPOSE 5432
-# for MySQL server (mariadb, only if START_MYSQL = true)
-EXPOSE 3306
+ARG SUBJECT
+ARG DO_SSL_LETS_ENCRYPT_FETCH
+ARG USE_EXISTING_LETS_ENCRYPT
+ARG EMAIL
+ARG DO_SSL_SELF_GENERATION
+
+RUN setup-apache-ssl-key
 
 # start servers
 COPY local-setup/start-servers.sh /usr/sbin/start-servers
 COPY local-setup/load-database.sh /usr/sbin/load-database
 RUN load-database
-ENV START_APACHE true
-ENV APACHE_ENABLE_PORT_80 true
-ENV START_MYSQL true
-ENV ENABLE_DAV false
-ENV ENABLE_CRON true
 CMD start-servers; sleep infinity
