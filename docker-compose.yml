@@ -24,6 +24,9 @@ services:
         - ENABLE_CRON=true
         - DO_SSL_LETS_ENCRYPT_FETCH=false
         - USE_EXISTING_LETS_ENCRYPT=false
+        - SUBJECT="/C=US/ST=CA/L=CITY/O=ORGANIZATION/OU=UNIT/CN=localhost"
+        - EMAIL=fail
+        - DO_SSL_SELF_GENERATION=false
     # here are the ports that various things in this container are listening on
     expose:
       # for http (apache, only if APACHE_DISABLE_PORT_80 = false)
