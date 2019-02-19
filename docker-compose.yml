@@ -22,6 +22,8 @@ services:
         - START_MYSQL=true
         - ENABLE_DAV=false
         - ENABLE_CRON=true
+        - DO_SSL_LETS_ENCRYPT_FETCH=false
+        - USE_EXISTING_LETS_ENCRYPT=false
     # here are the ports that various things in this container are listening on
     expose:
       # for http (apache, only if APACHE_DISABLE_PORT_80 = false)
