@@ -114,16 +114,9 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `description`, `url`, `sort`) VALUES
-(1, 'Environmental Sustainability', 'Jobs for companies that improve environmental sustainability', 'environmental_sustainability', 1),
-(2, 'Access to Education', 'Jobs for companies that improve access to education', 'education', 2),
-(3, 'Access to Quality Healthcare', 'Jobs for companies that improve access to quality healthcare', 'healthcare', 3),
-(4, 'Poverty Alleviation', 'Jobs for companies that help people pull themselves out of poverty', 'poverty_alleviation', 4),
-(5, 'Disability Support', 'Jobs for companies that help disabled people', 'disability_support', 6),
-(6, 'Mental Health', 'Jobs for companies that promote mental health', 'mental_health', 5),
-(7, 'Animal Rights', 'Jobs for companies that help promote animal rights', 'animal_rights', 7),
-(8, 'Indigenous Affairs', 'Jobs for organisations that help solve issues facing indigenous people', 'indigenous_affairs', 8),
-(9, 'Community Development', 'Jobs for organisations that promote healthy communities', 'community_development', 9),
-(10, 'Social Impact', 'Jobs for companies that help lift up the whole for-impact ecosystem', 'social_impact', 10);
+(1, 'Insegnante/istruttore', ' ', 1),
+(2, 'Impiegato autoscuola', ' ', 'education', 2),
+(3, 'Impiegato pratiche auto', ' ', 'healthcare', 3);
 
 -- --------------------------------------------------------
 

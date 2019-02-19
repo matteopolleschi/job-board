@@ -1,5 +1,5 @@
 FROM greyltc/archlinux:2017-11-20
-MAINTAINER Grey Christoforo <grey@christoforo.net>
+MAINTAINER Daphne Solutions <yes@daphne-solutions.com>
 
 COPY local-setup/install-lamp.sh /usr/sbin/install-lamp
 RUN install-lamp

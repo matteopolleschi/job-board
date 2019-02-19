@@ -12,12 +12,16 @@ session_start();
 ini_set('default_charset', 'utf-8');
 
 // ENGLISH TRANSLATION
-define('APP_LANG', 'en');
-setlocale(LC_ALL, 'en_EN');
+// define('APP_LANG', 'en');
+// setlocale(LC_ALL, 'en_EN');
 
 // FRENCH TRANSLATION
 // define('APP_LANG', 'fr');
 // setlocale(LC_ALL, 'fr_FR');
+
+// ITALIAN TRANSLATION
+define('APP_LANG', 'it');
+setlocale(LC_ALL, 'it_IT');
 
 // AUTO LOAD MODELS
 include 'models/helpers.php';
